@@ -1,5 +1,5 @@
 const inquirer = require("inquirer");
-const inquirer = require("figlet");
+const figlet = require("figlet");
 const consoleTable = require("console.table");
 const db = require("./db/db.sql");
 //==========================

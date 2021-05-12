@@ -11,13 +11,13 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "y"
+    "test": "node app.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/BradenWelsh/employeeTracker.git"
   },
-  "author": "BradenWelsh",
+  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/BradenWelsh/employeeTracker/issues"

@@ -1,7 +1,7 @@
 const inquirer = require("inquirer");
 const figlet = require("figlet");
 const consoleTable = require("console.table");
-const db = require("./db/db.sql");
+const db = require("./db/connections.js");
 //==========================
 // ASCII TEXT using Figlet
 //==========================

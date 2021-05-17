@@ -6,6 +6,7 @@ const db = require("./db/connections.js");
 // ASCII TEXT using Figlet
 //==========================
 console.log(figlet.textSync("Employee Tracker", {
+    font: 'slant',
     horizontalLayout: 'default',
     verticalLayout: 'default',
     width: 70,
@@ -16,15 +17,15 @@ const runDB = () => {
     return inquirer.prompt([
         {
             type: 'list',
-            message: 'What would you like to do?',
             name: 'prompt',
+            message: 'What would you like to do?',
             choices: ['Add an associate',
                     'Remove an associate',
-                    'Update an associates role(s)',
+                    'Update an associates role',
                     'View all associates',
                     'View all roles',
                     'View all departments',
-                    'Nothing.']
+                    'Nothing']
         }
     ])
     .then (data =>{
@@ -32,10 +33,10 @@ const runDB = () => {
             addEmployee()
         } else if (data.prompt == 'Remove an associate'){
             removeEmployee()
-        } else if (data.prompt == 'Update an associates role(s)'){
+        } else if (data.prompt == 'Update an associates role'){
             updateEmployeeRole()
         } else if (data.prompt == 'View all associates'){
-            db.query (`SELECT employees.first_name, employees.last_name, roles.title, roles.pay, departments.name, CONTACT(e.first_name, ' ' ,e.last_name)
+            db.query (`SELECT employees.first_name, employees.last_name, roles.title, roles.salary, departments.name, CONTACT(e.first_name, ' ' ,e.last_name)
                 AS Manager FROM employees 
                 INNER JOIN roles on roles.id = employees.role_id 
                 INNER JOIN department on department.id = roles.department_id 
@@ -45,7 +46,7 @@ const runDB = () => {
                     console.table(res)
                     runDB()
                 })
-        } else if(data.start == 'View all roles'){
+        } else if(data.prompt == 'View all roles'){
             db.query(`SELECT employees.first_name, employees.last_name, roles.title
                     AS Title FROM employees
                     JOIN roles ON employees.role_id = roles.id;`,
@@ -54,7 +55,7 @@ const runDB = () => {
                     console.table(res)
                     runDB();
                     })
-        } else if (data.start == 'View all departments') {
+        } else if (data.prompt == 'View all departments') {
             db.query (`SELECT employees.first_name, employees.last_name, department.name 
                     AS Department FROM employees 
                     JOIN roles ON employees.role_id = roles.id 
@@ -65,7 +66,7 @@ const runDB = () => {
                     console.table(res)
                     runDB();
                 })
-            }else if (data.prompt == 'Nothing.'){
+            }else if (data.prompt == 'Nothing'){
                 console.log ('Press CTRL + C to exit.')
                 return data;
             }
@@ -74,6 +75,7 @@ const runDB = () => {
 
 function addEmployee() {
     console.log(figlet.textSync('Add Associate', {
+        font: 'slant',
         horizontalLayout: 'default',
         verticalLayout: 'default',
         width: '70',
@@ -97,7 +99,7 @@ function addEmployee() {
         {
             type: 'input',
             name: 'lastName',
-            message: "What is the employee's last name? (required)",
+            message: "What is the associate's last name? (required)",
             validate: lastName => {
                 if (lastName) {
                   return true;
@@ -134,6 +136,7 @@ function addEmployee() {
 }
 function removeEmployee() {
     console.log(figlet.textSync('Remove Associate', {
+        font: 'slant',
         horizontalLayout: 'default',
         verticalLayout: 'default',
         width: 70,
@@ -170,6 +173,7 @@ function removeEmployee() {
 
 function updateEmployeeRole() {
     console.log(figlet.textSync('Update Employee', {
+        font: 'slant',
         horizontalLayout: 'default',
         verticalLayout: 'default',
         width: 70,

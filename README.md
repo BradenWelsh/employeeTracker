@@ -24,7 +24,7 @@
 
 ## Video and Link to Deployed Site
 * <a href="https://github.com/BradenWelsh/employeeTracker" rel="nofollow">https://github.com/BradenWelsh/employeeTracker</a>
-* <img src="/img/gif.mp4" alt="gif of how to use">
+* <img src="/img/gif.gif" alt="gif of how to use">
 
 ## Questions ✋
 * ✋ Find me on Github @ [BradenWelsh](http://github.com/BradenWelsh)
